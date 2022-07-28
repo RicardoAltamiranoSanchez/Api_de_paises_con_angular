@@ -1,0 +1,30 @@
+<table *ngIf="paises.length > 0" class="table table-hover">
+    <thead>
+        <tr>
+        <th>#</th>
+        <th>Bandera</th>
+        <th>Nombre</th>
+        <th>Poblacion</th>
+        <th></th>
+        
+        </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let p of paises;let i=index;">
+    <td>{{i+1}}</td>
+    <td>
+    <img class="small-flag" [src]="p.flags.png">
+     </td>
+    <td>{{p.name.common}}</td>
+    <td>{{p.population | number}}</td>
+    <td>
+    <!-- con routeLink indicamos la ruta primero pones el path que va ir y despues el id que vamos a mandar -->
+    <!-- esta es la ruta de roting pais/:id -->
+    <a [routerLink]="['/pais', p.postalCode.regex]">Ver mas...</a>
+    
+    </td>
+    
+</tr>
+    
+    </tbody>
+</table>

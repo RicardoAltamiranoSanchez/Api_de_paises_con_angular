@@ -1,0 +1,23 @@
+
+<h2>Busqueda</h2>
+<hr>
+<ul class="list-group">
+<!-- el routerLink solo es para indicar las rutas y ponemos el path para que nos dirija a donde queremos navegar -->
+<!-- el routerLinkActive es para activar una clase cuando este dentro del path para
+y el routerLinkActiveOptions es para decir que solo nos muestre si esta exactamente a dentro 
+por default nos muestra por el path asi indicamos que sea exacto -->
+<li 
+routerLink=""
+routerLinkActive="active"
+[routerLinkActiveOptions]="{exact:true}"
+class="list-group-item">Buscar pais</li>
+<li
+routerLink="region"
+routerLinkActive="active"
+class="list-group-item">Por region</li>
+<li 
+routerLink="capital"
+routerLinkActive="active"
+class="list-group-item">Por capital</li>
+
+</ul>

@@ -1,0 +1,27 @@
+<h2>Por Pais</h2>
+<br>
+
+<div class="row">
+<div class="col">
+<!-- mandamos a llamar el evento que hicimos o lo mandamos a buscar que esta en pais input para
+despues ponemos la funcion que queremos que realize que esta en por pais componente y el id
+$event es el termino que añadimos en pais input que lo enviamos desde ahi -->
+<app-input-pais
+
+(onEnter)="buscar($event)"
+(onDebounce)="sugerencias($event)"
+>
+
+</app-input-pais>
+</div>
+</div>
+<hr>
+<div *ngIf="error" class="alert alert-danger">
+No se encontro nada con el termino {{this.termino}}
+</div>
+<div class="row">
+<div class="col">
+<!-- mandamo nuestro arreglo de paises al otro componente y el id [] con @input lo recibimos -->
+   <app-table-pais [paises]="paises"></app-table-pais>
+</div>
+</div>
