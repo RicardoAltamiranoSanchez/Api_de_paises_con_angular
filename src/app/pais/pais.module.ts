@@ -6,8 +6,8 @@ import { PorCapitalComponent } from './pages/por-capital/por-capital.component';
 import { VerPaisComponent } from './pages/ver-pais/ver-pais.component';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {paisTableComponent} from './pages/por-pais/components/pais-table.component';
-import { paisInputComponent } from './pages/por-pais/components/pais-input/pais-input.component';
+import {paisTableComponent} from './pages/components/pais-table/pais-table.component';
+import { paisInputComponent } from './pages/components/pais-input/pais-input.component';
 
 
 @NgModule({

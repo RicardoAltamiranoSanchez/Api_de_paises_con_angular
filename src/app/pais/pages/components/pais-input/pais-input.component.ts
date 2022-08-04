@@ -1,4 +1,4 @@
-import { Component,EventEmitter, Output,OnInit} from '@angular/core';
+import { Component,EventEmitter, Output,Input,OnInit} from '@angular/core';
 import { Subject } from 'rxjs';
 import {debounceTime} from 'rxjs/operators';
 @Component({
@@ -16,6 +16,9 @@ termino:string = ''
 @Output() onDebounce:EventEmitter<string> = new EventEmitter();
 //un subjet es igual que un observavor de angular 
 //la idea se este debounce que se emita cuando uno deja de escribir
+@Input("placeholder") placeholder:string="";
+
+
 debounce:Subject<string>=new Subject();
 ngOnInit(): void {
 

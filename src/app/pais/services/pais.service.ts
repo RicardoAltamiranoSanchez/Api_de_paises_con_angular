@@ -3,12 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {  Observable, of } from 'rxjs';
 import {catchError} from 'rxjs/operators';
 import {Pais} from '../interfaces/pais-interface';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class PaisService {
 private apiUrl:string="https://restcountries.com/v3.1/";
+// private apiUrl2:string="https://restcountries.com/v2";
 // importamo el HttpClient para poder usar las peticiones ya que importamos desde el modulo principal el modulo de HttpClientModule
   constructor( private http:HttpClient ){}
 // buscamos la api y de decimos que es de tipo Observable ya que es un objeto de cualquier tipo
@@ -27,4 +29,13 @@ return this.http.get<Pais[]>(url);
 // //el of convierte lo que esta adentro en un observador y lo retorna de vuelta
 //         catchError((err) => of (["Este es un erro con un http ejemplo"]))
 // );
-}}
+}
+     buscarCapital(termino:string):Observable<Pais[]>{  
+       const url = `${this.apiUrl}/capital/${termino}`
+       return this.http.get<Pais[]>(url);}
+  
+     getCodigo(id:string):Observable<Pais>{
+       const url = `${this.apiUrl}/alpha/${id}`
+       return this.http.get<Pais>(url);}
+
+}

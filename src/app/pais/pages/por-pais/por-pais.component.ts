@@ -10,6 +10,7 @@ export class PorPaisComponent {
 termino:string="";
 error:boolean=false;
 paises:Pais[]=[];
+busqueda="Buscar por País";
 constructor( private paisService:PaisService ){}
  
  
