@@ -10,11 +10,14 @@ export class PorPaisComponent {
 termino:string="";
 error:boolean=false;
 paises:Pais[]=[];
+pais_sugerencias:Pais[]=[];
 busqueda="Buscar por País";
+existe:boolean=false;
 constructor( private paisService:PaisService ){}
  
  
  buscar(termino:string):void{
+this.existe=false;
  //lo inicializamos cada vez que busque algo para que no nos muestre el error
  this.error=false;
  this.termino=termino;
@@ -41,7 +44,18 @@ constructor( private paisService:PaisService ){}
  
  sugerencias(termino:string):void{
   this.error=false;
+  this.termino=termino;
+  this.existe=true
+ 
   //Creamos las sugerencias 
+ 
+ this.paisService.buscarPais(termino)
+ .subscribe((response)=>{
+  this.pais_sugerencias=response.splice(0,5);
+  console.log(response);
+ 
+ })
+ 
  
  }
  

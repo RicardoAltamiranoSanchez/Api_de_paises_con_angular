@@ -1,1 +1,42 @@
-<p>por-region works!</p>
+<h3>Busqueda por Region <small>{{region_activa |titlecase }}</small></h3>
+<hr>
+
+<h5>Seleccione Region</h5>
+<div class="class">
+    <div class="col">
+        <!-- [class.btn-primary]="region===region_activa"  indicamos si region es igual a region activa -->
+<!--         
+        indicamos dos setencias if si unas de las dos se cumple se ejecute
+        con ngClass es como clas.btn-primary de indicamos en la clase y los argumento que va llevar -->
+        <!-- [ngClass]="{
+            'btn-primary':region_activa===region,
+            'btn-outline-primary': region_activa !==region
+          
+          }" -->
+          <!-- cuando pones las [] y= debe ser un expresion de javascript o typeScript
+         -->
+         <!-- para validar si si existe si no que nos cambie el estilo del boton -->
+         <!-- [class]="(region=== region_activa) ? 'btn btn-primary' : 'btn btn-outline-primary'" -->
+        <button class="animate__animated animate__flash"
+        
+        *ngFor="let region of arreglo"
+                [class]="botonActivado(region)"
+                 (click)="BusquedaPorRegion(region)"> 
+                {{region | titlecase}}
+         
+        
+        </button>
+
+
+    </div>
+</div>
+<hr>
+<div *ngIf="error" class="alert alert-danger">
+No se encontro nada con el termino {{this.region_activa}}
+</div>
+<div class="row">
+    <div class="col">
+    <!-- mandamo nuestro arreglo de paises al otro componente y el id [] con @input lo recibimos -->
+       <app-table-pais [paises]="regiones"></app-table-pais>
+    </div>
+    </div>

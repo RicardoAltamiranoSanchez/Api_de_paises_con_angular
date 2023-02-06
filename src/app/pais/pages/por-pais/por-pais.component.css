@@ -1,3 +1,14 @@
 img{
 width: 50px;
 }
+li{
+
+    cursor: pointer;
+    color: #0000FF;
+    }
+    
+li:hover{
+background-color: #0D6EFD;
+color:white;
+
+}    
